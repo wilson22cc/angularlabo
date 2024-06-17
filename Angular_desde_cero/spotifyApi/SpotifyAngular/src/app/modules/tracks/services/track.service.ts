@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
@@ -19,7 +19,11 @@ export class TrackService {
         return data
       })
     )
+
   }
+
+
+
   getAllRandom$(): Observable<any> {
     return this.http.get(`${this.URL}/tracks`).pipe(
         map(({ data }: any) => {
